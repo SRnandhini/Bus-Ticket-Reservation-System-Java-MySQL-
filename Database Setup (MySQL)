@@ -1,0 +1,23 @@
+CREATE DATABASE bus_reservation;
+
+USE bus_reservation;
+
+CREATE TABLE bus (
+    bus_no INT PRIMARY KEY,
+    source VARCHAR(50),
+    destination VARCHAR(50),
+    total_seats INT,
+    available_seats INT
+);
+
+CREATE TABLE booking (
+    booking_id INT AUTO_INCREMENT PRIMARY KEY,
+    passenger_name VARCHAR(50),
+    bus_no INT,
+    seats_booked INT,
+    FOREIGN KEY (bus_no) REFERENCES bus(bus_no)
+);
+
+INSERT INTO bus VALUES (101, 'Chennai', 'Bangalore', 40, 40);
+INSERT INTO bus VALUES (102, 'Chennai', 'Coimbatore', 35, 35);
+INSERT INTO bus VALUES (103, 'Bangalore', 'Hyderabad', 45, 45);
